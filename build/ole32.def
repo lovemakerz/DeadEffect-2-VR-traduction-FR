@@ -1,0 +1,5 @@
+LIBRARY OLE32.dll
+EXPORTS
+CoInitializeEx
+CoUninitialize
+CoTaskMemFree

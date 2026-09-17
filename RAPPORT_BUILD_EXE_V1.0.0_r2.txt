@@ -1,0 +1,52 @@
+DEAD EFFECT 2 VR — TRADUCTION FRANÇAISE V1.0.0
+INSTALLATEUR EXE GRAPHIQUE — RÉVISION r2
+
+BASE
+- Traduction : V1.0.0 finale.
+- Payload d’installation : strictement inchangé par rapport à l’installateur EXE r1.
+- SHA-256 payload embarqué : 82d4046a25e64d85483bdca94adb6ba45a9052d36d3e900d2544bcadd319a6f0
+- Le patch continue de préserver resources.assets.original.bak et de reconstruire depuis l’original.
+
+INTERFACE
+- Skin fourni par l’utilisateur : 1200 × 800.
+- Skin converti en BMP 24 bits uniquement pour rendu GDI natif puis embarqué dans le PE64.
+- Vérification pixel à pixel PNG -> BMP : identique.
+- Aucune image externe nécessaire à l’exécution.
+- Fenêtre principale borderless 1200 × 800, centrée à l’ouverture.
+- Aucun contrôle BUTTON/EDIT visible au-dessus du skin : pas de cadre de focus/sélection.
+- Zones cliquables natives : Fermer, À propos, Parcourir, Installer, Désinstaller.
+- Curseur main au survol de chaque zone cliquable.
+- Le chemin du jeu est dessiné directement dans le champ prévu par le skin.
+- Une ligne de progression est dessinée dans le bas du champ pendant l’installation/restauration.
+- La partie supérieure non interactive peut servir à déplacer la fenêtre.
+
+À PROPOS
+- Fenêtre custom borderless centrée sur l’installateur.
+- Thème sombre avec accents cyan/rouge.
+- Texte intégré demandé par l’utilisateur :
+  Dead Effect 2 VR — Traduction française non officielle
+  Traduction française réalisée par LoVeMaKeRz
+  Projet communautaire gratuit et non affilié, approuvé ou sponsorisé par les détenteurs des droits de Dead Effect 2 VR. Dead Effect 2 VR, ses marques, personnages, visuels et autres éléments associés restent la propriété de leurs détenteurs respectifs.
+  Ce patch nécessite une copie légitime de Dead Effect 2 VR et ne contient pas le jeu original.
+
+INSTALLATION
+- Détection Steam native : registre Steam, libraryfolders.vdf et bibliothèques usuelles.
+- Dossier Unity validé : DeadEffect2_Data.
+- « Parcourir » refuse les dossiers ne contenant pas DeadEffect2_Data\resources.assets et Managed\Assembly-CSharp.dll.
+- Installation et désinstallation utilisent le payload V1.0.0 validé.
+- PowerShell est exécuté masqué ; aucun .bat/.ps1 n’est visible ou requis à côté de l’EXE.
+- Le fichier temporaire du payload est supprimé à la fin.
+- En cas d’échec, l’installateur propose d’ouvrir le dossier des logs.
+
+CONTRÔLES EFFECTUÉS
+- Compilation : PE32+ Windows GUI x86-64.
+- Dépendances importées : DLL système Windows uniquement.
+- Payload retrouvé byte-for-byte dans l’EXE : OK (1 501 354 octets).
+- Skin BMP retrouvé byte-for-byte dans l’EXE : OK (2 880 054 octets).
+- Conversion du skin : pixel-identique au PNG source.
+- Compilation clang -Wall/-Wextra : aucune alerte.
+- ZIP public et ZIP sources vérifiés après création.
+
+LIMITATION DE VALIDATION
+- Le binaire n’a pas pu être exécuté réellement sous Windows dans l’environnement de build.
+- Le premier lancement sur le PC de test reste donc nécessaire pour valider le rendu Win32, les zones cliquables et l’opération complète sur le jeu.
